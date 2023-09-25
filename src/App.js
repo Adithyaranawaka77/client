@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ItemPage from './components/ItemPage';
+import Wishlist from './components/Wishlist';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route path="/item/:itemId" component={ItemPage} />
+      <Route path="/wishlist" component={Wishlist} />
+      <Route path="/" exact>
+        {/* You can add a landing page component or content here */}
+        <h1>Welcome to My E-commerce App</h1>
+      </Route>
+    </Router>
   );
 }
 
